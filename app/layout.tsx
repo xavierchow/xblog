@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import localFont from 'next/font/local'
 import "./globals.css";
 
 const geistSans = Geist({
@@ -11,6 +12,32 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const aeonik = localFont({
+  src: [
+    {
+      path: './fonts/AeonikTRIAL-Regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './fonts/AeonikTRIAL-RegularItalic.otf',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: './fonts/AeonikTRIAL-Bold.otf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: './fonts/AeonikTRIAL-BoldItalic.otf',
+      weight: '700',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-aeonik',
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${aeonik.className} antialiased`}
       >
         {children}
       </body>
