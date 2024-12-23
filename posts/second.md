@@ -10,13 +10,13 @@ Well, it is not necessary to pursue the most minimalistic line of code in most c
 
 Then I was curious how shorter I could get it done with ... Haskell.
 
-<!-- more  -->
 
 ## Description of problem
 
+
 Given a list with numbers from 0 to 9(inclusive), generate a vertical histogram to stdout displaying how many of each number were in the list. e.g.
 
-```
+```js
 given:  [1,4,5,4,6,6,3,4,2,4,9]
 
 display:
@@ -92,7 +92,7 @@ Buckle up and let me elaborate on the solution.
 Let us fiddle with a similar but simplified example first, e.g., a list from 1 ~ 3: `[1, 2, 2, 3, 3, 2]`, 
 To get the matrix (1) eventually, we can try to build (2) first, don't worry about the `_`; it's just a  representation of a blank in the matrix for better visibility.
 
-```
+```yaml
 (1)
 _ * _
 _ * *
@@ -108,7 +108,7 @@ _ * *
 ```
 If we replace the asterisks with the corresponding nubmers, (2) would be a two-dimension list `[[1, 0, 0], [2, 2, 2], [3, 3, 0]]`, so if you know about Haskell, the conversion from the original list to the 2-dimension list needs a function with a signature of `[a] -> [[a]]`,
 that ... could be done with a `map`.
-```
+```haskell
 map f [1, 2, 3]
 
 ```
