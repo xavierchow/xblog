@@ -1,6 +1,8 @@
 import Markdown from "react-markdown";
 import { getMarkdownContent } from "@/app/lib/data";
-import CodeBlock from "@/app/components/code_block";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { gruvboxDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+
 
 export default async function Page(props: {
     params: Promise<{ slug: string }>;
@@ -23,7 +25,23 @@ export default async function Page(props: {
                             className="mt-5 flex flex-col items-center md:items-start"
                             components={{
                                 code(props) {
-                                    return <CodeBlock props={props} />;
+                                    const { children, className, node, ...rest } = props;
+                                    const match = /language-(\w+)/.exec(className || "");
+                                    return match ? (
+                                        <div className="syntax-highlighter-container">
+                                            <SyntaxHighlighter
+                                                {...rest}
+                                                PreTag="div"
+                                                children={String(children).replace(/\n$/, "")}
+                                                language={match[1]}
+                                                style={gruvboxDark}
+                                            />
+                                        </div>
+                                    ) : (
+                                    <code {...rest} className={className}>
+                                        {children}
+                                        </code>
+                                    );
                                 },
                             }}
                         >
