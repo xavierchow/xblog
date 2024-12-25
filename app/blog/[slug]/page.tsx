@@ -27,6 +27,10 @@ export default async function Page(props: {
                             className="mt-5 flex flex-col items-center md:items-start"
                             remarkPlugins={[remarkGfm]}
                             components={{
+                                pre(props) {
+                                    // for the code block span the full width
+                                    return <figure className="w-full" {...props} />;
+                                },
                                 code(props) {
                                     const { children, className, node, ...rest } = props;
                                     const match = /language-(\w+)/.exec(className || "");
