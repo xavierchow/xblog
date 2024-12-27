@@ -1,6 +1,6 @@
 ---
 title: Less is more when it comes to code
-date: '2022-10-30 22:57:24'
+date: '2022-10-30'
 ---
 
 I have been learning Haskell for a while, it's one of the famous functional programming languages. When I practiced with some exercises, I found an interesting thing that the [Excercise here](https://www.seas.upenn.edu/~cis1940/spring13/hw/03-rec-poly.pdf) requires you to write the code as little as possible.
