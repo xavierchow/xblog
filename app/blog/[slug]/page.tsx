@@ -32,7 +32,7 @@ export default async function Page(props: { params: Promise<{ slug: string }> })
               remarkPlugins={[remarkGfm]}
               components={{
                 pre(props) {
-                  // for the code block span the full width
+                  // for the code block span the full width TODO line wrap
                   return <figure className="w-full" {...props} />;
                 },
                 code(props) {
