@@ -6,8 +6,9 @@ import { gruvboxDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { howManyMinsRead } from '@/app/lib/utils';
 import remarkGfm from 'remark-gfm';
 
+const MARKDOWN_FOLDER = process.env.MARKDOWN_FOLDER || 'posts/';
 export default async function Page(props: { params: Promise<{ slug: string }> }) {
-  const folder = 'posts/';
+  const folder = MARKDOWN_FOLDER;
   const slug = (await props.params).slug;
   const post = await getMarkdownContent(folder, slug);
   const postParams = post.data;

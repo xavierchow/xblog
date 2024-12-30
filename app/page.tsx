@@ -1,8 +1,10 @@
 import Card from '@/app/components/card';
 import { getMarkdownData } from '@/app/lib/data';
+const MARKDOWN_FOLDER = process.env.MARKDOWN_FOLDER || 'posts/';
 
 export default async function Home() {
-  const rawPosts = await getMarkdownData('posts/');
+  console.log('MARKDOWN_FOLDER %s', MARKDOWN_FOLDER);
+  const rawPosts = await getMarkdownData(MARKDOWN_FOLDER);
   const posts = rawPosts.sort((a, b) => {
     // descending
     return a.date > b.date ? -1 : 1;
