@@ -78,7 +78,7 @@ export default function RootLayout({
             <div className="flex flex-row items-center justify-between w-full h-auto lg:h-[76px]">
               <div className="flex items-center lg:block lg:items-start">
                 <Link href="/">
-                  <Image src="/xlogo.png" width={100} height={60} alt="Blog logo" />
+                  <Image src="/xlogo2.png" width={100} height={60} alt="Blog logo" />
                 </Link>
               </div>
               <div className="flex-row hidden lg:show lg:flex">

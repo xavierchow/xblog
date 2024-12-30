@@ -1,4 +1,4 @@
-import { countWords } from '../app/lib/utils';
+import { countWords, parseFrontMatter } from '../app/lib/utils';
 
 describe('countWords', () => {
     test('should split words', () => {
@@ -52,5 +52,46 @@ describe('countWords', () => {
             words: 7,
             codes: 2,
         });
+    });
+});
+
+describe('parseFrontMatter', () => {
+    test('should parse date with ISOString', () => {
+        const content = `---
+title: Send HTTP requests with netcat
+date: 2021-11-15 17:28:18
+tags:
+  - http
+---
+Body
+`;
+        const { data: fm } = parseFrontMatter(content);
+
+        expect(fm.title).toBe('Send HTTP requests with netcat');
+        expect(fm.date).toBe('2021-11-16');
+    });
+    test('should parse date with date only', () => {
+        const content = `---
+title: Foo
+date: 2024-01-01
+tags:
+  - http
+---
+Body
+`;
+        const { data: fm } = parseFrontMatter(content);
+        expect(fm.title).toBe('Foo');
+        expect(fm.date).toBe('2024-01-01');
+    });
+    test('should parse tags to ensure it is list', () => {
+        const content = `---
+title: Foo
+date: 2024-01-01
+tags: bar
+---
+Body
+`;
+        const { data: fm } = parseFrontMatter(content);
+        expect(fm.tags).toEqual(['bar']);
     });
 });

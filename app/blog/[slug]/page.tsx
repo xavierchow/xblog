@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Markdown from 'react-markdown';
 import { getMarkdownContent } from '@/app/lib/data';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -16,7 +17,17 @@ export default async function Page(props: { params: Promise<{ slug: string }> })
   return (
     <main>
       <div className={`container mx-auto ${proseClassNames}`}>
-        <div className="md:px-4 md:py-4 pb-0 2xl:px-24 2xl:py-4">
+        <div className="bg-[#2D2D2D] rounded-xl aspect-video w-full overflow-hidden flex-shrink-0 mb-4 items-center justify-center flex relative border border-[#1c1c1c]">
+          <Image
+            src={postParams.cover || '/coding.png'}
+            alt={`the cover image of blog post ${postParams.title}`}
+            className="w-full rounded-md"
+            width={360}
+            height={100}
+          />
+        </div>
+
+        <div className="md:px-4 md:py-4 pb-0 2xl:py-4">
           <div className="w-full px-2">
             <div className="transition-all translate-y-0 opacity-100">
               <h2 className="text-center lg:text-center text-white  leading-[40px] text-[32px] lg:leading-[64px] lg:text-[56px]">

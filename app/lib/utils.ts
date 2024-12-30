@@ -1,3 +1,7 @@
+import matter from 'gray-matter';
+import dayjs from 'dayjs';
+import { FrontMatter } from './definitions';
+
 function isImage(str: string) {
   return str.startsWith('![img](');
 }
@@ -38,4 +42,15 @@ export function howManyMinsRead(content: string) {
   const seconds4image = (result.images || 0) * 12; // TODO improve
   const seconds4words = Math.floor(result.words / 265) * 60;
   return Math.floor((seconds4code + seconds4image + seconds4words) / 60);
+}
+
+export function parseFrontMatter(doc: string): { data: FrontMatter; content: string } {
+  const { content, data } = matter(doc);
+  const d = (data.date ? dayjs(data.date) : dayjs()).format('YYYY-MM-DD');
+
+  let tags;
+  if (!Array.isArray(data.tags) && typeof data.tags === 'string') {
+    tags = [data.tags];
+  }
+  return { content, data: { ...data, date: d, tags } as FrontMatter };
 }

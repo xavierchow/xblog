@@ -1,7 +1,7 @@
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'path';
-import matter from 'gray-matter';
 import { Post } from '@/app/lib/definitions';
+import { parseFrontMatter } from '@/app/lib/utils';
 
 export async function getMarkdownData(folder: string): Promise<Post[]> {
   const files = await readdir(folder);
@@ -10,12 +10,12 @@ export async function getMarkdownData(folder: string): Promise<Post[]> {
   const postsData = await Promise.all(
     markdownPosts.map(async (file: string) => {
       const filePath = path.join(folder, file);
-      const content = await readFile(filePath, 'utf8');
-      const data = matter(content);
+      const doc = await readFile(filePath, 'utf8');
+      const { data, content } = parseFrontMatter(doc);
       return {
-        ...data.data,
+        ...data,
         slug: file.replace('.md', ''),
-        content: data.content,
+        content: content,
       };
     })
   );
@@ -25,6 +25,5 @@ export async function getMarkdownData(folder: string): Promise<Post[]> {
 export async function getMarkdownContent(folder: string, slug: string) {
   const file = `${folder}${slug}.md`;
   const content = await readFile(file, 'utf8');
-  const matterResult = matter(content);
-  return matterResult;
+  return parseFrontMatter(content);
 }
