@@ -1,20 +1,9 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@nextui-org/button';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
 
 const aeonik = localFont({
   src: [
@@ -47,7 +36,7 @@ export const metadata: Metadata = {
   description: "xavier zhou's blog posts",
 };
 
-export function GithubLogo({ size, height, width }: { size?: number; width?: number; height?: number }) {
+function GithubLogo({ size, height, width }: { size?: number; width?: number; height?: number }) {
   return (
     <svg
       width={size || width || 98}

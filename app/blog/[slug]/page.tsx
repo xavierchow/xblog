@@ -47,7 +47,7 @@ export default async function Page(props: { params: Promise<{ slug: string }> })
                   return <figure className="w-full" {...props} />;
                 },
                 code(props) {
-                  const { children, className, node, ...rest } = props;
+                  const { children, className, ...rest } = props;
                   const match = /language-(\w+)/.exec(className || '');
                   return match ? (
                     <div className="syntax-highlighter-container">
@@ -55,10 +55,11 @@ export default async function Page(props: { params: Promise<{ slug: string }> })
                         {...rest}
                         PreTag="div"
                         wrapLines={false}
-                        children={String(children).replace(/\n$/, '')}
                         language={match[1]}
                         style={gruvboxDark}
-                      />
+                      >
+                        {String(children).replace(/\n$/, '')}
+                      </SyntaxHighlighter>
                     </div>
                   ) : (
                     <code {...rest} className={className}>
