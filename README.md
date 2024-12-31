@@ -24,6 +24,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deploy 
 
+* Install sharp
+
+``` bash
+npm i sharp
+```
+
 * build
 ``` bash
 docker build . --platform linux/amd64 -t ghcr.io/xavierchow/xblog:latest
@@ -34,3 +40,4 @@ docker build . --platform linux/amd64 -t ghcr.io/xavierchow/xblog:latest
 ``` bash
 docker run -p 3000:3000 -e MARKDOWN_FOLDER=/app/myposts/ -v /Users/xavier/docker_share/posts:/app/myposts ghcr.io/xavierchow/xblog
 ```
+
