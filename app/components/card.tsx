@@ -8,7 +8,7 @@ export default function Card({ slug, title, date, tags, cover, description }: Po
       <Link href={`/blog/${slug}`}>
         <div className="bg-[#2D2D2D] rounded-xl overflow-hidden flex-shrink-0 mb-4 items-center justify-center flex aspect-video w-full">
           <Image
-            src={cover || '/less-is-more-when-it-comes-to-code.png'}
+            src={cover || '/coding.png'}
             alt={`the cover image of blog post ${title}`}
             className="w-full rounded-md"
             width={360}
