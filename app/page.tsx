@@ -1,10 +1,21 @@
 import Card from '@/app/components/card';
 import { getMarkdownData } from '@/app/lib/data';
+import { unstable_cache } from 'next/cache';
 const MARKDOWN_FOLDER = process.env.MARKDOWN_FOLDER || 'posts/';
 
 export default async function Home() {
-  console.log('MARKDOWN_FOLDER %s', MARKDOWN_FOLDER);
-  const rawPosts = await getMarkdownData(MARKDOWN_FOLDER);
+  const getCachedMarkdownData = unstable_cache(
+    async () => {
+      return getMarkdownData(MARKDOWN_FOLDER);
+    },
+    [],
+    {
+      tags: ['/blogs'],
+      revalidate: 60,
+    }
+  );
+  const rawPosts = await getCachedMarkdownData();
+
   const posts = rawPosts.sort((a, b) => {
     // descending
     return a.date > b.date ? -1 : 1;
