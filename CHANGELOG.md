@@ -1,4 +1,8 @@
-# 1.0.0 (2025-01-01)
+## [1.0.1](https://github.com/xavierchow/xblog/compare/v1.0.0...v1.0.1) (2025-01-01)
+
+
+
+# [1.0.0](https://github.com/xavierchow/xblog/compare/105152df49196a866030a1a51aaa04dcee872c30...v1.0.0) (2025-01-01)
 
 
 ### Bug Fixes
