@@ -1,3 +1,12 @@
+## [1.0.2](https://github.com/xavierchow/xblog/compare/v1.0.1...v1.0.2) (2025-01-01)
+
+
+### Bug Fixes
+
+* image path in detail page ([9e0d97c](https://github.com/xavierchow/xblog/commit/9e0d97c43cf790766c716d5ff588af70eb1a17d9))
+
+
+
 ## [1.0.1](https://github.com/xavierchow/xblog/compare/v1.0.0...v1.0.1) (2025-01-01)
 
 
