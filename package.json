@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "format": "prettier --write \"app/**/*.ts\" \"app/**/*.tsx\"",
     "test": "jest"
   },
@@ -35,6 +36,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-syntax-highlighter": "^15.5.13",
+    "conventional-changelog-cli": "^5.0.0",
     "eslint": "^9.17.0",
     "eslint-config-next": "^15.1.2",
     "eslint-plugin-react": "^7.37.3",
