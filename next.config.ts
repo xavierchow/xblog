@@ -1,7 +1,9 @@
 import type { NextConfig } from 'next';
 
+const basePath = process.env.APP_BASEPATH || '/myblog';
 const nextConfig: NextConfig = {
     /* config options here */
+    basePath,
     images: {
         remotePatterns: [
             {

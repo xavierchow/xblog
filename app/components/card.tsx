@@ -5,7 +5,7 @@ type PostMeta = Partial<Post>;
 export default function Card({ slug, title, date, tags, cover, description }: PostMeta) {
   return (
     <div className="p-4">
-      <Link href={`/blog/${slug}`}>
+      <Link href={`/posts/${slug}`}>
         <div className="bg-[#2D2D2D] rounded-xl overflow-hidden flex-shrink-0 mb-4 items-center justify-center flex aspect-video w-full">
           <Image
             src={cover || '/coding.png'}

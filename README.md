@@ -24,15 +24,16 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deploy 
 
-* Install sharp
-
-``` bash
-npm i sharp
-```
 
 * build
 ``` bash
 docker build . --platform linux/amd64 -t ghcr.io/xavierchow/xblog:latest
+```
+* push to github registry
+
+``` bash
+docker push ghcr.io/xavierchow/xblog:latest
+
 ```
 
 * run
