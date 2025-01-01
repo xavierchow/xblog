@@ -1,6 +1,7 @@
 import matter from 'gray-matter';
 import dayjs from 'dayjs';
 import { FrontMatter } from './definitions';
+import config from '@/next.config';
 
 function isImage(str: string) {
   return str.startsWith('![img](');
@@ -53,4 +54,11 @@ export function parseFrontMatter(doc: string): { data: FrontMatter; content: str
     tags = [data.tags];
   }
   return { content, data: { ...data, date: d, tags } as FrontMatter };
+}
+
+export function parseImageSrc(coverUrl?: string) {
+  if (coverUrl && coverUrl.startsWith('http')) {
+    return coverUrl;
+  }
+  return `${config.basePath}${coverUrl || '/coding.png'}`;
 }

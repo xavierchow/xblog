@@ -1,15 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import config from '@/next.config';
 import { Post } from '@/app/lib/definitions';
+import { parseImageSrc } from '@/app/lib/utils';
 type PostMeta = Partial<Post>;
 
-function parseImageSrc(coverUrl?: string) {
-  if (coverUrl && coverUrl.startsWith('http')) {
-    return coverUrl;
-  }
-  return `${config.basePath}${coverUrl || '/coding.png'}`;
-}
 export default function Card({ slug, title, date, tags, cover, description }: PostMeta) {
   return (
     <div className="p-4">

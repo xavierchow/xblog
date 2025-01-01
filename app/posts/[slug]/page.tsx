@@ -3,7 +3,7 @@ import Markdown from 'react-markdown';
 import { getMarkdownContent } from '@/app/lib/data';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { gruvboxDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { howManyMinsRead } from '@/app/lib/utils';
+import { howManyMinsRead, parseImageSrc } from '@/app/lib/utils';
 import remarkGfm from 'remark-gfm';
 
 const MARKDOWN_FOLDER = process.env.MARKDOWN_FOLDER || '_posts/';
@@ -20,7 +20,7 @@ export default async function Page(props: { params: Promise<{ slug: string }> })
       <div className={`container mx-auto ${proseClassNames}`}>
         <div className="bg-[#2D2D2D] rounded-xl aspect-video w-full overflow-hidden flex-shrink-0 mb-4 items-center justify-center flex relative border border-[#1c1c1c]">
           <Image
-            src={postParams.cover || '/coding.png'}
+            src={parseImageSrc(postParams.cover)}
             alt={`the cover image of blog post ${postParams.title}`}
             className="w-full rounded-md"
             width={360}
