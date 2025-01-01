@@ -4,6 +4,8 @@ import './globals.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@nextui-org/button';
+import config from '@/next.config';
+const basePath = config.basePath;
 
 const aeonik = localFont({
   src: [
@@ -67,7 +69,7 @@ export default function RootLayout({
             <div className="flex flex-row items-center justify-between w-full h-auto lg:h-[76px]">
               <div className="flex items-center lg:block lg:items-start">
                 <Link href="/">
-                  <Image src="/xlogo2.png" width={100} height={60} alt="Blog logo" />
+                  <Image src={`${basePath}/xlogo2.png`} width={100} height={60} alt="Blog logo" />
                 </Link>
               </div>
               <div className="flex-row hidden lg:show lg:flex">

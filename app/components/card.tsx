@@ -1,14 +1,22 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import config from '@/next.config';
 import { Post } from '@/app/lib/definitions';
 type PostMeta = Partial<Post>;
+
+function parseImageSrc(coverUrl?: string) {
+  if (coverUrl && coverUrl.startsWith('http')) {
+    return coverUrl;
+  }
+  return `${config.basePath}${coverUrl || '/coding.png'}`;
+}
 export default function Card({ slug, title, date, tags, cover, description }: PostMeta) {
   return (
     <div className="p-4">
       <Link href={`/posts/${slug}`}>
         <div className="bg-[#2D2D2D] rounded-xl overflow-hidden flex-shrink-0 mb-4 items-center justify-center flex aspect-video w-full">
           <Image
-            src={cover || '/coding.png'}
+            src={parseImageSrc(cover)}
             alt={`the cover image of blog post ${title}`}
             className="w-full rounded-md"
             width={360}
