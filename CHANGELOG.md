@@ -1,3 +1,13 @@
+## [1.0.3](https://github.com/xavierchow/xblog/compare/v1.0.2...v1.0.3) (2025-01-02)
+
+
+### Features
+
+* icon for mobile screen ([1c49ab2](https://github.com/xavierchow/xblog/commit/1c49ab2be230aeb48d6abe768759acf0ceb581ea))
+* responsive nav bar ([9e67b08](https://github.com/xavierchow/xblog/commit/9e67b08a01776adb090b773bbbc8591b0b672fc0))
+
+
+
 ## [1.0.2](https://github.com/xavierchow/xblog/compare/v1.0.1...v1.0.2) (2025-01-01)
 
 
