@@ -4,6 +4,7 @@ import './globals.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@nextui-org/button';
+import { HomeIcon } from '@heroicons/react/24/outline';
 import config from '@/next.config';
 const basePath = config.basePath;
 
@@ -69,10 +70,21 @@ export default function RootLayout({
             <div className="flex flex-row items-center justify-between w-full h-auto lg:h-[76px]">
               <div className="flex items-center lg:block lg:items-start">
                 <Link href="/">
-                  <Image src={`${basePath}/xlogo2.png`} width={100} height={60} alt="Blog logo" />
+                  <div className="hidden lg:block my-2">
+                    <Image
+                      src={`${basePath}/xlogo2.png`}
+                      width={100}
+                      height={60}
+                      alt="Blog logo"
+                      className="rounded-md"
+                    />
+                  </div>
+                  <div className="lg:hidden my-2 -mx-6">
+                    <HomeIcon className="w-6" />
+                  </div>
                 </Link>
               </div>
-              <div className="flex-row hidden lg:show lg:flex">
+              <div className="flex-row hidden lg:flex">
                 <Link href="https://github.com/xavierchow">
                   <Button
                     endContent={<GithubLogo size={24} />}

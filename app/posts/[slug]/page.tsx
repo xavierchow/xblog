@@ -17,7 +17,7 @@ export default async function Page(props: { params: Promise<{ slug: string }> })
     'prose prose-sm md:prose-base lg:prose-xl prose-invert prose-a:text-[#7cd1ed] prose-p:opacity-90 prose-code:before:content-none prose-code:after:content-none';
   return (
     <main>
-      <div className={`container mx-auto ${proseClassNames}`}>
+      <div className={`container mx-auto ${proseClassNames} px-2`}>
         <div className="bg-[#2D2D2D] rounded-xl aspect-video w-full overflow-hidden flex-shrink-0 mb-4 items-center justify-center flex relative border border-[#1c1c1c]">
           <Image
             src={parseImageSrc(postParams.cover)}
