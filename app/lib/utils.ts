@@ -49,8 +49,9 @@ export function parseFrontMatter(doc: string): { data: FrontMatter; content: str
   const { content, data } = matter(doc);
   const d = (data.date ? dayjs(data.date) : dayjs()).format('YYYY-MM-DD');
 
-  let tags;
-  if (!Array.isArray(data.tags) && typeof data.tags === 'string') {
+  let tags = data.tags;
+
+  if (typeof data.tags === 'string') {
     tags = [data.tags];
   }
   return { content, data: { ...data, date: d, tags } as FrontMatter };

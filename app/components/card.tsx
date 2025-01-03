@@ -21,9 +21,12 @@ export default function Card({ slug, title, date, tags, cover, description }: Po
           <span className="opacity-60 whitespace-nowrap">{date}</span>
           <div className="opacity-60">{tags && tags.map((t) => `#${t}`).join(' ')} </div>
         </div>
-        <div className="text-3xl my-4">{title}</div>
+        <div className="text-2xl md:text-3xl mt-2 mb-6">{title}</div>
         <div className="opacity-60 mb-4 text-[16px]">{description}</div>
       </Link>
+      <div className="w-full flex justify-start opacity-50">
+        <hr className="w-4/6 md:hidden" />
+      </div>
     </div>
   );
 }

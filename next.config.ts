@@ -1,6 +1,6 @@
 import type { NextConfig } from 'next';
 
-const basePath = process.env.APP_BASEPATH || '/myblog';
+const basePath = process.env.APP_BASEPATH || '/blog';
 const nextConfig: NextConfig = {
     /* config options here */
     basePath,
