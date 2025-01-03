@@ -1,12 +1,17 @@
 'use client';
 import { useState } from 'react';
 
+import { Charm } from 'next/font/google';
 import Link from 'next/link';
-import Image from 'next/image';
-import { HomeIcon, Bars3Icon } from '@heroicons/react/24/outline';
+import { HomeIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Button } from '@nextui-org/button';
+const charm = Charm({
+  weight: ['400', '700'],
+  style: 'normal',
+  subsets: ['latin'],
+});
+
 import config from '@/next.config';
-const basePath = config.basePath;
 
 function GithubLogo({ size, height, width }: { size?: number; width?: number; height?: number }) {
   return (
@@ -33,21 +38,16 @@ export default function NavBar() {
       <div className="sticky top-0 z-30 backdrop-blur">
         <div className="dark container flex-col justify-between px-9 mx-auto lg:items-center">
           <div className="flex flex-row items-center justify-between w-full h-auto lg:h-[76px]">
-            <div className="flex items-center lg:block lg:items-start">
+            <div className={`flex flex-row items-end gap-2`}>
               <Link href="/">
-                <div className="hidden lg:block my-2">
-                  <Image
-                    src={`${basePath}/xlogo2.png`}
-                    width={100}
-                    height={60}
-                    alt="Blog logo"
-                    className="rounded-md"
-                  />
-                </div>
-                <div className="lg:hidden my-2 ">
-                  <HomeIcon className="w-6" />
+                <div className="my-2 ">
+                  <HomeIcon className="w-7 lg:w-9" />
                 </div>
               </Link>
+
+              <div className="my-2">
+                <span className={`${charm.className} lg:text-2xl font-bold inline-block align-middle`}> Xavier.Z</span>
+              </div>
             </div>
             <div className="flex-row hidden lg:flex">
               <Link href="https://github.com/xavierchow">
@@ -66,13 +66,21 @@ export default function NavBar() {
                 setToggle(!toggle);
               }}
             >
-              <Bars3Icon className="w-6" />
+              <Bars3Icon className="w-7" />
             </div>
           </div>
         </div>
       </div>
       {toggle && (
-        <div className="absolute top-0 left-0 z-40 no-doc-scroll backdrop-blur w-full h-screen">
+        <div className="fixed top-0 left-0 z-40 no-doc-scroll backdrop-blur w-full h-screen">
+          <div
+            className="absolute right-4 top-4"
+            onClick={() => {
+              setToggle(!toggle);
+            }}
+          >
+            <XMarkIcon className="w-7" />
+          </div>
           <ul
             className="container mx-auto h-full text-lg underline decoration-solid flex flex-col justify-center gap-6 px-16"
             onClick={() => {
