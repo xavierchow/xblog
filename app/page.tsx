@@ -1,12 +1,13 @@
 import Card from '@/app/components/card';
 import { getMarkdownData } from '@/app/lib/data';
+import { getMarkdownFilesFolder } from '@/app/lib/utils';
 import { unstable_cache } from 'next/cache';
-const MARKDOWN_FOLDER = process.env.MARKDOWN_FOLDER || '_posts/';
 
 export default async function Home() {
+  const folder = getMarkdownFilesFolder();
   const getCachedMarkdownData = unstable_cache(
     async () => {
-      return getMarkdownData(MARKDOWN_FOLDER);
+      return getMarkdownData(folder);
     },
     [],
     {

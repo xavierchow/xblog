@@ -62,3 +62,11 @@ export function parseImageSrc(coverUrl?: string) {
   }
   return `${config.basePath}${coverUrl || '/coding.png'}`;
 }
+
+export function getMarkdownFilesFolder() {
+  let markdownFolder = process.env.MARKDOWN_FOLDER || '_posts/';
+  if (!markdownFolder.endsWith('/')) {
+    markdownFolder = markdownFolder + '/';
+  }
+  return markdownFolder;
+}

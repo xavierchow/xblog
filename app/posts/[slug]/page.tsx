@@ -3,12 +3,11 @@ import Markdown from 'react-markdown';
 import { getMarkdownContent } from '@/app/lib/data';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { gruvboxDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { howManyMinsRead, parseImageSrc } from '@/app/lib/utils';
+import { howManyMinsRead, parseImageSrc, getMarkdownFilesFolder } from '@/app/lib/utils';
 import remarkGfm from 'remark-gfm';
 
-const MARKDOWN_FOLDER = process.env.MARKDOWN_FOLDER || '_posts/';
 export default async function Page(props: { params: Promise<{ slug: string }> }) {
-  const folder = MARKDOWN_FOLDER;
+  const folder = getMarkdownFilesFolder();
   const slug = (await props.params).slug;
   const post = await getMarkdownContent(folder, slug);
   const postParams = post.data;
