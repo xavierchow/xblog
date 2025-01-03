@@ -39,7 +39,7 @@ export function countWords(content: string) {
 export function howManyMinsRead(content: string) {
   const result = countWords(content);
   // 30s for code block
-  const seconds4code = (result.codes || 0) * 30;
+  const seconds4code = (result.codes || 0) * 60;
   const seconds4image = (result.images || 0) * 12; // TODO improve
   const seconds4words = Math.floor(result.words / 265) * 60;
   return Math.floor((seconds4code + seconds4image + seconds4words) / 60);

@@ -70,7 +70,7 @@ export default function NavBar() {
         </div>
       </div>
       {toggle && (
-        <div className="fixed top-0 left-0 z-40 no-doc-scroll backdrop-blur w-full h-screen">
+        <div className="fixed top-0 left-0 z-40 no-doc-scroll bg-black/80 backdrop-blur w-full h-screen">
           <div
             className="absolute right-4 top-4"
             onClick={() => {

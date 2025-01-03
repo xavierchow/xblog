@@ -5,11 +5,13 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { gruvboxDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { howManyMinsRead, parseImageSrc, getMarkdownFilesFolder } from '@/app/lib/utils';
 import remarkGfm from 'remark-gfm';
+import refreshTrigger from '@/app/lib/fresh-trigger';
 
 export default async function Page(props: { params: Promise<{ slug: string }> }) {
   const folder = getMarkdownFilesFolder();
   const slug = (await props.params).slug;
   const post = await getMarkdownContent(folder, slug);
+  refreshTrigger();
   const postParams = post.data;
   const minutesToRead = howManyMinsRead(post.content);
   const proseClassNames =
