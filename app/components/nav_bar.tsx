@@ -11,8 +11,6 @@ const charm = Charm({
   subsets: ['latin'],
 });
 
-import config from '@/next.config';
-
 function GithubLogo({ size, height, width }: { size?: number; width?: number; height?: number }) {
   return (
     <svg
