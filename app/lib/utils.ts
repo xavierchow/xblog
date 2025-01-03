@@ -1,7 +1,7 @@
 import matter from 'gray-matter';
 import dayjs from 'dayjs';
 import { FrontMatter } from './definitions';
-import config from '@/next.config';
+import config from '../../next.config';
 
 function isImage(str: string) {
   return str.startsWith('![img](');

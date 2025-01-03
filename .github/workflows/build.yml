@@ -1,44 +1,37 @@
-name: Build and Push
+name: ci
 
 on:
-  push:
-    branches:
-      - main
-    tags:
-      - v*
-env:
-  IMAGE_NAME: xblog
-#
+  pull_request:
+    branches: [main, develop]
+
 jobs:
-  # This pushes the image to GitHub Packages.
-  push:
+  basic:
+    name: Lint and tests
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
-      #
+    timeout-minutes: 25
+    strategy:
+      matrix:
+        node-version: [20.x]
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out source code
+        uses: actions/checkout@v3
 
-      - name: Build image
-        run: docker build .  --platform linux/amd64 --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
 
-      - name: Log in to registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-        #
-      - name: Push image
-        run: |
-          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
+      - name: Install packages
+        run: npm install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-          # This changes all uppercase characters to lowercase.
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          # This strips the git ref prefix from the version.
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-          # This strips the "v" prefix from the tag name.
-          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-          # This uses the Docker `latest` tag convention.
-          [ "$VERSION" == "main" ] && VERSION=latest
-          echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
-          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm run test
+
+      - name: Build
+        run: npm run build
