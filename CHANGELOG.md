@@ -1,3 +1,21 @@
+# [1.1.0](https://github.com/xavierchow/xblog/compare/v1.0.3...v1.1.0) (2025-01-03)
+
+
+### Bug Fixes
+
+* ci trigger ([f619281](https://github.com/xavierchow/xblog/commit/f619281efc44fbcaab69fe00822711aa289c46de))
+* nav bar style ([5f44210](https://github.com/xavierchow/xblog/commit/5f44210aa5f947831049857bba646e0bc3946d68))
+* timezone offset for test ([2ebfea8](https://github.com/xavierchow/xblog/commit/2ebfea8df3b219a95bf85dc0b04e6e33f711d88b))
+* unused var ([a14e3cf](https://github.com/xavierchow/xblog/commit/a14e3cf2cfb810de8331f4879f0edec1d6a091c1))
+
+
+### Features
+
+* build action ([39dce65](https://github.com/xavierchow/xblog/commit/39dce65461e08772d85095c581d8632542142961))
+* ci ([478c584](https://github.com/xavierchow/xblog/commit/478c58464c393cef82780398c56dead0be18e0ee))
+
+
+
 ## [1.0.3](https://github.com/xavierchow/xblog/compare/v1.0.2...v1.0.3) (2025-01-02)
 
 
