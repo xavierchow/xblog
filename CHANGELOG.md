@@ -1,3 +1,12 @@
+## [1.1.1](https://github.com/xavierchow/xblog/compare/v1.1.0...v1.1.1) (2025-01-03)
+
+
+### Features
+
+* divider between cards ([d19891c](https://github.com/xavierchow/xblog/commit/d19891c8968b15dc2fdb9b55db932ac2c348a81d))
+
+
+
 # [1.1.0](https://github.com/xavierchow/xblog/compare/v1.0.3...v1.1.0) (2025-01-03)
 
 
