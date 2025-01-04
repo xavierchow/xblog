@@ -1,3 +1,17 @@
+## [1.1.4](https://github.com/xavierchow/xblog/compare/v1.1.3...v1.1.4) (2025-01-04)
+
+
+### Bug Fixes
+
+* lint issues ([6d50ae6](https://github.com/xavierchow/xblog/commit/6d50ae66d0506e4e083bb4297c5d94ef3e8c567b))
+
+
+### Features
+
+* enable husky ([5738efd](https://github.com/xavierchow/xblog/commit/5738efdd1ef1c4e9c2bbf2c87fe79005b729cd22))
+
+
+
 ## [1.1.3](https://github.com/xavierchow/xblog/compare/v1.1.2...v1.1.3) (2025-01-04)
 
 
