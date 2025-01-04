@@ -1,3 +1,12 @@
+## [1.1.3](https://github.com/xavierchow/xblog/compare/v1.1.2...v1.1.3) (2025-01-04)
+
+
+### Features
+
+* dynamic wip ([9657235](https://github.com/xavierchow/xblog/commit/96572354130bb4c261455bca859869cf7daab0e3))
+
+
+
 ## [1.1.2](https://github.com/xavierchow/xblog/compare/v1.1.1...v1.1.2) (2025-01-03)
 
 
