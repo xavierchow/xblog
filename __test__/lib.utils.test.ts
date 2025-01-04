@@ -1,4 +1,4 @@
-import { countWords, parseFrontMatter } from '../app/lib/utils';
+import { countWords, parseFrontMatter, debounce } from '../app/lib/utils';
 
 describe('countWords', () => {
     test('should split words', () => {
@@ -93,5 +93,31 @@ Body
 `;
         const { data: fm } = parseFrontMatter(content);
         expect(fm.tags).toEqual(['bar']);
+    });
+});
+
+describe('debounce', () => {
+    test('should only execute once', () => {
+        let count = 0;
+        const fn = debounce((value: unknown) => {
+            count++;
+            return value;
+        }, 2000);
+        fn(1);
+        fn(2);
+        fn(3);
+        expect(count).toBe(1);
+    });
+    test('should execute after duration', async () => {
+        let count = 0;
+        const fn = debounce((value: unknown) => {
+            count++;
+            return value;
+        }, 1);
+        fn(1);
+        fn(2);
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        fn(3);
+        expect(count).toBe(2);
     });
 });

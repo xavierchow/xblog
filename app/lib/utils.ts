@@ -71,3 +71,14 @@ export function getMarkdownFilesFolder() {
   }
   return markdownFolder;
 }
+
+export function debounce(fn: Function, durationInSec: number) {
+  let lastCalledAt: number | null;
+  return (...args: [a: unknown]) => {
+    if (!lastCalledAt || Date.now() > lastCalledAt * 1000 + durationInSec * 1000) {
+      lastCalledAt = Math.floor(Date.now() / 1000);
+      return fn.apply(null, args);
+    }
+    return;
+  };
+}

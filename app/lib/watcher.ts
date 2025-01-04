@@ -1,6 +1,7 @@
 import { watch, readFile, writeFile } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'url';
+import { debounce } from '@/app/lib/utils';
 import dayjs from 'dayjs';
 
 const ac = new AbortController();
@@ -8,15 +9,15 @@ const { signal } = ac;
 //setTimeout(() => ac.abort(), 30000);
 
 export async function startWatch(folder: string) {
+  const trigger = debounce(changeTriggerSourceFile, 2);
   try {
     const watcher = watch(folder, { signal });
     for await (const event of watcher) {
-      // TODO debounce the same file
       console.log(event);
       if (!event.filename?.endsWith('md')) {
         continue;
       }
-      await changeTriggerSourceFile(event.filename);
+      await trigger(event.filename);
     }
   } catch (err: unknown) {
     if (err instanceof Error && err.name === 'AbortError') {

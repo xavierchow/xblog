@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
                 protocol: 'https',
                 hostname: 'github.com',
             },
+            {
+                protocol: 'https',
+                hostname: 'wiredcraft.com',
+            },
         ],
     },
     // https://nextjs.org/docs/pages/api-reference/next-config-js/output#automatically-copying-traced-files

@@ -36,17 +36,20 @@ export default function NavBar() {
       <div className="sticky top-0 z-30 backdrop-blur">
         <div className="dark container flex-col justify-between px-9 mx-auto lg:items-center">
           <div className="flex flex-row items-center justify-between w-full h-auto lg:h-[76px]">
-            <div className={`flex flex-row items-end gap-2`}>
-              <Link href="/">
+            <Link href="/">
+              <div className={`flex flex-row items-end gap-2`}>
                 <div className="my-2 ">
                   <HomeIcon className="w-7 lg:w-9" />
                 </div>
-              </Link>
 
-              <div className="my-2">
-                <span className={`${charm.className} lg:text-2xl font-bold inline-block align-middle`}> Xavier.Z</span>
+                <div className="my-2">
+                  <span className={`${charm.className} lg:text-2xl font-bold inline-block align-middle`}>
+                    {' '}
+                    Xavier.Z
+                  </span>
+                </div>
               </div>
-            </div>
+            </Link>
             <div className="flex-row hidden lg:flex">
               <Link href="https://github.com/xavierchow">
                 <Button
