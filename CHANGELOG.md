@@ -1,3 +1,12 @@
+## [1.1.5](https://github.com/xavierchow/xblog/compare/v1.1.4...v1.1.5) (2025-01-04)
+
+
+### Bug Fixes
+
+* typing issue for debounce ([0b220d7](https://github.com/xavierchow/xblog/commit/0b220d76ac52ad2c9c82906a6545fb3a2a8a53e8))
+
+
+
 ## [1.1.4](https://github.com/xavierchow/xblog/compare/v1.1.3...v1.1.4) (2025-01-04)
 
 
