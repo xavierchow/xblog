@@ -1,3 +1,14 @@
+## [1.1.8](https://github.com/xavierchow/xblog/compare/v1.1.7...v1.1.8) (2025-01-05)
+
+
+### Bug Fixes
+
+* ci ([e036b65](https://github.com/xavierchow/xblog/commit/e036b653ff17623369b809ad376453889f0b3542))
+* ci format ([f618693](https://github.com/xavierchow/xblog/commit/f618693dcad6da79d131b08112c78878a950fd52))
+* footer font size ([ca70b2e](https://github.com/xavierchow/xblog/commit/ca70b2e1a08212875f793f2b37d774bb414cd300))
+
+
+
 ## [1.1.7](https://github.com/xavierchow/xblog/compare/v1.1.6...v1.1.7) (2025-01-05)
 
 
