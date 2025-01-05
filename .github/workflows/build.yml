@@ -41,3 +41,7 @@ jobs:
 
       - name: Build
         run: npm run build
+    - name: Build
+        run: |
+          npm run copyTrigger
+          npm run build
