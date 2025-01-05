@@ -85,7 +85,7 @@ export default async function Page(props: { params: Promise<{ slug: string }> })
           </div>
         </div>
         <div className="w-full md:px-4 md:py-4 flex flex-row justify-between">
-          <Link href={`/posts/${previousPost && previousPost.slug}`} className="text-base">
+          <Link href={`/posts/${previousPost && previousPost.slug}`} className="text-sm md:text-base">
             {previousPost && (
               <>
                 <ChevronLeftIcon className="w-6 inline" />
@@ -93,7 +93,7 @@ export default async function Page(props: { params: Promise<{ slug: string }> })
               </>
             )}
           </Link>
-          <Link href={`/posts/${nextPost && nextPost.slug}`} className="text-base">
+          <Link href={`/posts/${nextPost && nextPost.slug}`} className="text-sm md:text-base">
             {nextPost && (
               <>
                 {nextPost.title}
