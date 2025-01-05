@@ -26,6 +26,7 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 ENV NEXT_TELEMETRY_DISABLED=1
 
+RUN npm run copyTrigger
 RUN \
   if [ -f package-lock.json ]; then npm run build; \
   else echo "Lockfile not found." && exit 1; \
