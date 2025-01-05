@@ -1,3 +1,12 @@
+## [1.1.6](https://github.com/xavierchow/xblog/compare/v1.1.5...v1.1.6) (2025-01-05)
+
+
+### Features
+
+* footer ([07779f0](https://github.com/xavierchow/xblog/commit/07779f0058e98b4e4f98960fe08f1237f04e88a4))
+
+
+
 ## [1.1.5](https://github.com/xavierchow/xblog/compare/v1.1.4...v1.1.5) (2025-01-04)
 
 
