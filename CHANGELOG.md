@@ -1,3 +1,12 @@
+## [1.1.7](https://github.com/xavierchow/xblog/compare/v1.1.6...v1.1.7) (2025-01-05)
+
+
+### Bug Fixes
+
+* build in docker ([e6bd6b4](https://github.com/xavierchow/xblog/commit/e6bd6b4ae56675355ff9f36f7fcff9ad812ee5d1))
+
+
+
 ## [1.1.6](https://github.com/xavierchow/xblog/compare/v1.1.5...v1.1.6) (2025-01-05)
 
 
