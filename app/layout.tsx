@@ -44,6 +44,7 @@ export default function RootLayout({
       <body className={`${aeonik.className} antialiased h-full`}>
         <NavBar />
         {children}
+        <div className="container mt-6 h-12 mx-auto flex flex-row justify-end p-2"> © 2025 Xavier Zhou </div>
       </body>
     </html>
   );

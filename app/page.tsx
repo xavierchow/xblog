@@ -1,26 +1,10 @@
 import Card from '@/app/components/card';
-import { getMarkdownData } from '@/app/lib/data';
+import { getCachedMarkdownData } from '@/app/lib/data';
 import { getMarkdownFilesFolder } from '@/app/lib/utils';
-import { unstable_cache } from 'next/cache';
 
 export default async function Home() {
   const folder = getMarkdownFilesFolder();
-  const getCachedMarkdownData = unstable_cache(
-    async () => {
-      return getMarkdownData(folder);
-    },
-    [],
-    {
-      tags: ['/blogs'],
-      revalidate: 60,
-    }
-  );
-  const rawPosts = await getCachedMarkdownData();
-
-  const posts = rawPosts.sort((a, b) => {
-    // descending
-    return a.date > b.date ? -1 : 1;
-  });
+  const posts = await getCachedMarkdownData(folder);
 
   console.log(
     'posts meta %o',

@@ -1,6 +1,9 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Markdown from 'react-markdown';
-import { getMarkdownContent } from '@/app/lib/data';
+
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { getMarkdownContent, getCachedMarkdownData } from '@/app/lib/data';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { gruvboxDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { howManyMinsRead, parseImageSrc, getMarkdownFilesFolder } from '@/app/lib/utils';
@@ -14,6 +17,12 @@ export default async function Page(props: { params: Promise<{ slug: string }> })
   refreshTrigger();
   const postParams = post.data;
   const minutesToRead = howManyMinsRead(post.content);
+
+  const posts = await getCachedMarkdownData(folder);
+  const curIndex = posts.findIndex((p) => p.slug === slug);
+  const previousPost = curIndex > 0 && posts[curIndex - 1];
+  const nextPost = curIndex < posts.length - 1 && posts[curIndex + 1];
+
   const proseClassNames =
     'prose prose-sm md:prose-base lg:prose-xl prose-invert prose-a:text-[#7cd1ed] prose-p:opacity-90 prose-code:before:content-none prose-code:after:content-none';
   return (
@@ -74,6 +83,24 @@ export default async function Page(props: { params: Promise<{ slug: string }> })
               {post.content}
             </Markdown>
           </div>
+        </div>
+        <div className="w-full md:px-4 md:py-4 flex flex-row justify-between">
+          <Link href={`/posts/${previousPost && previousPost.slug}`} className="text-base">
+            {previousPost && (
+              <>
+                <ChevronLeftIcon className="w-6 inline" />
+                {previousPost.title}
+              </>
+            )}
+          </Link>
+          <Link href={`/posts/${nextPost && nextPost.slug}`} className="text-base">
+            {nextPost && (
+              <>
+                {nextPost.title}
+                <ChevronRightIcon className="w-6 inline" />
+              </>
+            )}
+          </Link>
         </div>
       </div>
     </main>
