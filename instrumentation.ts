@@ -1,5 +1,4 @@
 import { getMarkdownFilesFolder } from '@/app/lib/utils';
-console.log('instrumentation runtime', process.env.NEXT_RUNTIME);
 export async function register() {
   console.log('registering... instrumentation runtime %s', process.env.NEXT_RUNTIME);
 

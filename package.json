@@ -6,11 +6,13 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "watch": "npm run copyTrigger && WATCH_MARKDOWN=yes npm run dev",
     "lint": "next lint",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "format": "prettier --write \"app/**/*.ts\" \"app/**/*.tsx\"",
     "test": "jest",
-    "prepare": "husky"
+    "prepare": "husky",
+    "copyTrigger": "cp ./app/lib/fresh-trigger.template.ts ./app/lib/fresh-trigger.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
