@@ -1,4 +1,4 @@
-import { countWords, parseFrontMatter, debounce } from '../app/lib/utils';
+import { countWords, parseFrontMatter, debounce, howManyMinsReadForImage } from '../app/lib/utils';
 
 describe('countWords', () => {
     test('should split words', () => {
@@ -119,5 +119,20 @@ describe('debounce', () => {
         await new Promise((resolve) => setTimeout(resolve, 1000));
         fn(3);
         expect(count).toBe(2);
+    });
+});
+
+describe('howManyMinsReadForImage', () => {
+    test('less than 10 images', () => {
+        const mins = howManyMinsReadForImage(2);
+        expect(mins).toBe(23);
+    });
+    test('5 images', () => {
+        const mins = howManyMinsReadForImage(5);
+        expect(mins).toBe(12 + 11 + 10 + 9 + 8);
+    });
+    test('15 images', () => {
+        const mins = howManyMinsReadForImage(15);
+        expect(mins).toBe(((12 + 3) * 10) / 2 + 5 * 3);
     });
 });
