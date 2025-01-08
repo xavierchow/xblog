@@ -30,17 +30,19 @@ export async function getMarkdownContent(folder: string, slug: string) {
 }
 
 export async function getCachedMarkdownData(folder: string) {
-  const cachedGetter = unstable_cache(
-    async () => {
-      return getMarkdownData(folder);
-    },
-    [],
-    {
-      tags: ['/blogs'],
-      revalidate: 60,
-    }
-  );
-
+  let cachedGetter = () => getMarkdownData(folder);
+  if (process.env.WATCH_MARKDOWN === 'yes') {
+    cachedGetter = unstable_cache(
+      async () => {
+        return getMarkdownData(folder);
+      },
+      [],
+      {
+        tags: ['/blogs'],
+        revalidate: 60,
+      }
+    );
+  }
   const rawPosts = await cachedGetter();
 
   const posts = rawPosts.sort((a, b) => {
