@@ -5,6 +5,8 @@ import { Post } from '@/app/lib/definitions';
 import { parseFrontMatter } from '@/app/lib/utils';
 
 export async function getMarkdownData(folder: string): Promise<Post[]> {
+  console.log('reading markdown--- %s', new Date());
+
   const files = await readdir(folder);
   const markdownPosts = files.filter((file: string) => file.endsWith('.md'));
 
@@ -30,8 +32,10 @@ export async function getMarkdownContent(folder: string, slug: string) {
 }
 
 export async function getCachedMarkdownData(folder: string) {
-  let cachedGetter = () => getMarkdownData(folder);
+  let cachedGetter;
   if (process.env.WATCH_MARKDOWN === 'yes') {
+    cachedGetter = () => getMarkdownData(folder);
+  } else {
     cachedGetter = unstable_cache(
       async () => {
         return getMarkdownData(folder);
