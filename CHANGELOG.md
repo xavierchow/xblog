@@ -1,3 +1,12 @@
+## [1.1.9](https://github.com/xavierchow/xblog/compare/v1.1.8...v1.1.9) (2025-01-09)
+
+
+### Bug Fixes
+
+* cache ([69e3c14](https://github.com/xavierchow/xblog/commit/69e3c143b0b4824444b1c74e502cc07eccb65ab2))
+
+
+
 ## [1.1.8](https://github.com/xavierchow/xblog/compare/v1.1.7...v1.1.8) (2025-01-05)
 
 
