@@ -93,7 +93,7 @@ export function getMarkdownFilesFolder() {
   return markdownFolder;
 }
 
-export function debounce<T>(fn: (...args: T[]) => void, durationInSec: number) {
+export function debounce<T>(fn: (...args: T[]) => Promise<void> | void, durationInSec: number) {
   let lastCalledAt: number | null;
   return (...args: T[]) => {
     if (!lastCalledAt || Date.now() > lastCalledAt * 1000 + durationInSec * 1000) {

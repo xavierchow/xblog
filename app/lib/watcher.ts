@@ -30,7 +30,7 @@ export async function startWatch(folder: string) {
 async function changeTriggerSourceFile(changedFile: string) {
   const __dirname = dirname(fileURLToPath(import.meta.url));
 
-  const triggerPath = resolve(__dirname, './fresh-trigger.ts');
+  const triggerPath = resolve(__dirname, './refresh-beacon.ts');
   const contents = await readFile(triggerPath, { encoding: 'utf8' });
   const newSeed = `${dayjs().unix()}_${changedFile}`;
 

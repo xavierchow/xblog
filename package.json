@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "npm run copyTrigger && next build",
     "start": "next start",
     "watch": "npm run copyTrigger && WATCH_MARKDOWN=yes npm run dev",
     "lint": "next lint",
@@ -12,7 +12,7 @@
     "format": "prettier --write \"app/**/*.ts\" \"app/**/*.tsx\"",
     "test": "jest",
     "prepare": "husky",
-    "copyTrigger": "cp ./app/lib/fresh-trigger.template.ts ./app/lib/fresh-trigger.ts"
+    "copyTrigger": "cp ./app/lib/refresh-beacon.template.ts ./app/lib/refresh-beacon.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

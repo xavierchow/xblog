@@ -43,7 +43,7 @@ export async function getCachedMarkdownData(folder: string) {
       [],
       {
         tags: ['/blogs'],
-        revalidate: 60,
+        revalidate: 60 * 10,
       }
     );
   }
