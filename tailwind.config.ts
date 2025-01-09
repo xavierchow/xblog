@@ -17,6 +17,13 @@ export default {
                 black: '#0E0E0E',
                 cyan: '#6FE2FF',
             },
+            typography: {
+                DEFAULT: {
+                    css: {
+                        maxWidth: '75ch',
+                    },
+                },
+            },
         },
     },
     plugins: [
