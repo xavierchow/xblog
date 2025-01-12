@@ -3,7 +3,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import NavBar from '@/app/components/nav_bar';
-
+const gaId = process.env.GA_ID || '';
 const aeonik = localFont({
   src: [
     {
@@ -49,7 +49,7 @@ export default function RootLayout({
           © 2025 Xavier Zhou
         </div>
       </body>
-      <GoogleAnalytics gaId="G-V8K12Z578W" />
+      <GoogleAnalytics gaId={gaId} />
     </html>
   );
 }

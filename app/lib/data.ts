@@ -3,7 +3,7 @@ import path from 'path';
 import { unstable_cache } from 'next/cache';
 import { Post } from '@/app/lib/definitions';
 import { parseFrontMatter } from '@/app/lib/utils';
-
+const CACHE_TTL_IN_MIN = parseInt(process.env.CACHE_TTL_IN_MIN || '5');
 export async function getMarkdownData(folder: string): Promise<Post[]> {
   console.log('reading markdown--- %s', new Date());
 
@@ -43,7 +43,7 @@ export async function getCachedMarkdownData(folder: string) {
       [],
       {
         tags: ['/blogs'],
-        revalidate: 60 * 10,
+        revalidate: 60 * CACHE_TTL_IN_MIN,
       }
     );
   }
