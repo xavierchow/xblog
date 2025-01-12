@@ -1,3 +1,13 @@
+# [1.2.0](https://github.com/xavierchow/xblog/compare/v1.1.10...v1.2.0) (2025-01-12)
+
+
+### Features
+
+* configurage env var for ga and ttl ([8fed653](https://github.com/xavierchow/xblog/commit/8fed6531a2c705baae173e3193d57fab16e2398a))
+* ga ([bb535ab](https://github.com/xavierchow/xblog/commit/bb535ab863990b4bc38326089523edf4b8e505c1))
+
+
+
 ## [1.1.10](https://github.com/xavierchow/xblog/compare/v1.1.9...v1.1.10) (2025-01-10)
 
 
