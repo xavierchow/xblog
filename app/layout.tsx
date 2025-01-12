@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import NavBar from '@/app/components/nav_bar';
 
 const aeonik = localFont({
@@ -48,6 +49,7 @@ export default function RootLayout({
           © 2025 Xavier Zhou
         </div>
       </body>
+      <GoogleAnalytics gaId="G-V8K12Z578W" />
     </html>
   );
 }
