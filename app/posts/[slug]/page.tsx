@@ -108,7 +108,7 @@ export default async function Page(props: { params: Promise<{ slug: string }> })
 
         <div id="disqus_thread"></div>
       </div>
-      <Script id="disqus_init_config">{`var disqus_config = function () {this.page.url = '${host}${basePath}/${slug}'; this.page.identifier = '${slug}';}`}</Script>
+      <Script id="disqus_init_config">{`var disqus_config = function () {this.page.title = '${postParams.title}'; this.page.url = '${host}${basePath}/${slug}'; this.page.identifier = '${slug}';}`}</Script>
       <Script src="https://xblog-7.disqus.com/embed.js" data-timestamp={+new Date()} />
     </main>
   );
