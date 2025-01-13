@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Markdown from 'react-markdown';
+import Script from 'next/script';
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { getMarkdownContent, getCachedMarkdownData } from '@/app/lib/data';
@@ -9,6 +10,8 @@ import { gruvboxDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { howManyMinsRead, parseImageSrc, getMarkdownFilesFolder } from '@/app/lib/utils';
 import remarkGfm from 'remark-gfm';
 import refreshTrigger from '@/app/lib/refresh-beacon';
+const host = process.env.APP_HOST || 'https://xavierz.dev';
+const basePath = process.env.APP_BASEPATH || '/blog';
 
 export default async function Page(props: { params: Promise<{ slug: string }> }) {
   const folder = getMarkdownFilesFolder();
@@ -102,7 +105,11 @@ export default async function Page(props: { params: Promise<{ slug: string }> })
             )}
           </Link>
         </div>
+
+        <div id="disqus_thread"></div>
       </div>
+      <Script id="disqus_init_config">{`var disqus_config = function () {this.page.url = '${host}${basePath}/${slug}'; this.page.identifier = '${slug}';}`}</Script>
+      <Script src="https://xblog-7.disqus.com/embed.js" data-timestamp={+new Date()} />
     </main>
   );
 }

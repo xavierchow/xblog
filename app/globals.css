@@ -22,3 +22,7 @@ body {
 :root:has(.no-doc-scroll) {
   overflow: hidden;
 }
+
+#disqus_thread {
+  color-scheme: none;
+}
