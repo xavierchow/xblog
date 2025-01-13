@@ -29,6 +29,7 @@ and run `npm run watch`, you can get the live editing feature out of box.
 
 * `MARKDOWN_FOLDER`: the absolute path of folder with markdown files.
 * `WATCH_MARKDOWN`: yes for live editing experience.
+* `APP_HOST`: the FQDN of your blog website, e.g. `https://example.blog.com`
 
 ## How to Deploy 
 
