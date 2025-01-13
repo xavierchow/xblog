@@ -1,3 +1,12 @@
+## [1.2.1](https://github.com/xavierchow/xblog/compare/v1.2.0...v1.2.1) (2025-01-13)
+
+
+### Features
+
+* add disqus comments ([0db55c8](https://github.com/xavierchow/xblog/commit/0db55c8cf42e8535605394df98cdeb502de092f1))
+
+
+
 # [1.2.0](https://github.com/xavierchow/xblog/compare/v1.1.10...v1.2.0) (2025-01-12)
 
 
