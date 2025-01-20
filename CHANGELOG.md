@@ -1,3 +1,12 @@
+## [1.2.2](https://github.com/xavierchow/xblog/compare/v1.2.1...v1.2.2) (2025-01-20)
+
+
+### Bug Fixes
+
+* disqus url ([678b0fd](https://github.com/xavierchow/xblog/commit/678b0fd4f14f747fe6a1c82aae2c2b9913234b48))
+
+
+
 ## [1.2.1](https://github.com/xavierchow/xblog/compare/v1.2.0...v1.2.1) (2025-01-13)
 
 
