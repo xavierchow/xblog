@@ -1,3 +1,12 @@
+## [1.2.3](https://github.com/xavierchow/xblog/compare/v1.2.2...v1.2.3) (2025-01-20)
+
+
+### Bug Fixes
+
+* disqus script config ([1a212ec](https://github.com/xavierchow/xblog/commit/1a212ecb7f27bc28ddeb32a23e5ffe7e99d173e2))
+
+
+
 ## [1.2.2](https://github.com/xavierchow/xblog/compare/v1.2.1...v1.2.2) (2025-01-20)
 
 
