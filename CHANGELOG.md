@@ -1,3 +1,12 @@
+## [1.2.6](https://github.com/xavierchow/xblog/compare/v1.2.5...v1.2.6) (2025-01-26)
+
+
+### Features
+
+* metadata per page ([a47fb64](https://github.com/xavierchow/xblog/commit/a47fb645fdd719996d167a8f43072b31b8b4565e))
+
+
+
 ## [1.2.5](https://github.com/xavierchow/xblog/compare/v1.2.4...v1.2.5) (2025-01-26)
 
 
