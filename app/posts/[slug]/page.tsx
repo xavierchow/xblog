@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Markdown from 'react-markdown';
@@ -12,6 +13,18 @@ import remarkGfm from 'remark-gfm';
 import refreshTrigger from '@/app/lib/refresh-beacon';
 const host = process.env.APP_HOST || 'https://xavierz.dev';
 const basePath = process.env.APP_BASEPATH || '/blog';
+
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const folder = getMarkdownFilesFolder();
+  const slug = (await props.params).slug;
+  const { data } = await getMarkdownContent(folder, slug);
+  return {
+    title: data.title,
+    description: data.description || data.title,
+    keywords: data.tags || [],
+    authors: [{ name: 'xavier zhou', url: 'https://github.com/xavierchow' }],
+  };
+}
 
 export default async function Page(props: { params: Promise<{ slug: string }> }) {
   const folder = getMarkdownFilesFolder();
