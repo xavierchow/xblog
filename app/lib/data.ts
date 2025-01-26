@@ -1,4 +1,4 @@
-import { readFile, readdir } from 'node:fs/promises';
+import { readFile, readdir, stat } from 'node:fs/promises';
 import path from 'path';
 import { unstable_cache } from 'next/cache';
 import { Post } from '@/app/lib/definitions';
@@ -54,4 +54,19 @@ export async function getCachedMarkdownData(folder: string) {
     return a.date > b.date ? -1 : 1;
   });
   return posts;
+}
+export async function getPostsMeta(folder: string) {
+  const files = await readdir(folder);
+  const markdownPosts = files.filter((file: string) => file.endsWith('.md'));
+  const postsMeta = await Promise.all(
+    markdownPosts.map(async (file: string) => {
+      const filePath = path.join(folder, file);
+      const stats = await stat(filePath);
+      return {
+        ...stats,
+        slug: file.replace('.md', ''),
+      };
+    })
+  );
+  return postsMeta;
 }
