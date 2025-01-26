@@ -1,3 +1,12 @@
+## [1.2.4](https://github.com/xavierchow/xblog/compare/v1.2.3...v1.2.4) (2025-01-26)
+
+
+### Features
+
+* robots.txt and sitemap ([1306dd1](https://github.com/xavierchow/xblog/commit/1306dd19425e2e98ab389ed1eb31203b85f823c5))
+
+
+
 ## [1.2.3](https://github.com/xavierchow/xblog/compare/v1.2.2...v1.2.3) (2025-01-20)
 
 
