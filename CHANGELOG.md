@@ -1,3 +1,12 @@
+## [1.2.5](https://github.com/xavierchow/xblog/compare/v1.2.4...v1.2.5) (2025-01-26)
+
+
+### Bug Fixes
+
+* dynamic sitemap ([b97f57d](https://github.com/xavierchow/xblog/commit/b97f57d1032d7e2964547a0fc1f5d2d208752c85))
+
+
+
 ## [1.2.4](https://github.com/xavierchow/xblog/compare/v1.2.3...v1.2.4) (2025-01-26)
 
 
