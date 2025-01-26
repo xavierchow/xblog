@@ -27,20 +27,4 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   };
   links.push(root);
   return links;
-  /*
-[
-  {
-    url: 'https://acme.com',
-    lastModified: new Date(),
-    changeFrequency: 'yearly',
-    priority: 1,
-  },
-  {
-    url: 'https://acme.com/blog',
-    lastModified: new Date(),
-    changeFrequency: 'weekly',
-    priority: 0.5,
-  },
-];
-   */
 }

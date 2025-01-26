@@ -56,17 +56,31 @@ export async function getCachedMarkdownData(folder: string) {
   return posts;
 }
 export async function getPostsMeta(folder: string) {
-  const files = await readdir(folder);
-  const markdownPosts = files.filter((file: string) => file.endsWith('.md'));
-  const postsMeta = await Promise.all(
-    markdownPosts.map(async (file: string) => {
-      const filePath = path.join(folder, file);
-      const stats = await stat(filePath);
-      return {
-        ...stats,
-        slug: file.replace('.md', ''),
-      };
-    })
+  const getMeta = async (folder: string) => {
+    const files = await readdir(folder);
+    const markdownPosts = files.filter((file: string) => file.endsWith('.md'));
+    const postsMeta = await Promise.all(
+      markdownPosts.map(async (file: string) => {
+        const filePath = path.join(folder, file);
+        const stats = await stat(filePath);
+        return {
+          ...stats,
+          slug: file.replace('.md', ''),
+        };
+      })
+    );
+    return postsMeta;
+  };
+
+  const getter = unstable_cache(
+    async () => {
+      return getMeta(folder);
+    },
+    [],
+    {
+      tags: ['/sitemap'],
+      revalidate: 60 * CACHE_TTL_IN_MIN,
+    }
   );
-  return postsMeta;
+  return getter();
 }
