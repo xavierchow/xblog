@@ -37,7 +37,7 @@ export default function NavBar() {
         <div className="dark container flex-col justify-between px-9 mx-auto lg:items-center">
           <div className="flex flex-row items-center justify-between w-full h-auto lg:h-[76px]">
             <Link href="/">
-              <div className={`flex flex-row items-end gap-2`}>
+              <div className="flex flex-row items-end gap-2">
                 <div className="my-2 ">
                   <HomeIcon className="w-7 lg:w-9" />
                 </div>
@@ -50,7 +50,20 @@ export default function NavBar() {
                 </div>
               </div>
             </Link>
-            <div className="flex-row hidden lg:flex">
+
+            <div className="flex flex-row gap-8 hidden lg:flex">
+              <Link href="/about">
+                <div className="my-2">
+                  <span className={`lg:text-lg inline-block align-middle`}>Links</span>
+                </div>
+              </Link>
+
+              <Link href="/about">
+                <div className="my-2">
+                  <span className={`lg:text-lg inline-block align-middle`}>About</span>
+                </div>
+              </Link>
+
               <Link href="https://github.com/xavierchow">
                 <Button
                   endContent={<GithubLogo size={24} />}
