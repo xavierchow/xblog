@@ -32,11 +32,10 @@ export default async function Page() {
   const links = R.map((p) => {
     return { source: p.slug, target: p.tag };
   }, flatten);
-
   //console.log('links %o', links);
   return (
     <div className="m-auto flex justify-center">
-      <NetworkDiagram width={1024} height={768} data={{ nodes, links }}></NetworkDiagram>
+      <NetworkDiagram width={1024} height={1024} data={{ nodes, links }}></NetworkDiagram>
     </div>
   );
 }

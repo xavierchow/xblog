@@ -6,24 +6,24 @@ export default function Page() {
 
   return (
     <main>
-      <div className={`container mx-auto pt-8 px-2 ${proseClassNames} grid grid-rows-[1fr_120px]`}>
+      <div className={`container mx-auto pt-8 px-4 ${proseClassNames} flex flex-col`}>
         <div>
           <h1>About -- Xavier Zhou</h1>
-          <ul className="text-3xl/10 font-stretch-expanded">
-            <li>Full-stack Engineer with 15+ years of experience based in Shanghai, China.</li>
-            <li>
+          <div className="text-xl/6 md:text-3xl/10 text-balance font-stretch-expanded">
+            <p>Full-stack Engineer with 15+ years of experience based in Shanghai, China.</p>
+            <p>
               I&apos;ve collaborated with renowned brands including Starbucks, Adidas, General Motor, Burberry, Prada,
               Tiffany.
-            </li>
-            <li>I combine technology and engineering to create innovative digital products. .</li>
-            <li>
+            </p>
+            <p>I combine technology and engineering to create innovative digital products. .</p>
+            <p>
               I&apos;m strong at distributed system & microservice architecture design, agile development and
               engineering process of SDLC.
-            </li>
-          </ul>
+            </p>
+          </div>
         </div>
         <div className="py-8 border-t-1 ">
-          <div className="m-auto w-4/5 px-12 flex flex-row justify-between items-center">
+          <div className="m-auto w-4/5 px-8 flex flex-col md:flex-row justify-between items-center gap-2">
             <Avatar
               className="w-24 h-24 text-large"
               classNames={{

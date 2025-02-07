@@ -1,13 +1,14 @@
 'use client';
 import * as d3 from 'd3';
+import { GeistSans } from 'geist/font/sans';
 import { useEffect, useState, useRef } from 'react';
-import { Data, Link, Node, SimulatedLink } from './data';
+import { Data, Link, Node, SimulatedLink } from './types';
 import { useRouter } from 'next/navigation';
 
 export const RADIUS = 5;
 function getRadius(weight: number) {
   weight = weight || 1;
-  return weight * RADIUS;
+  return (weight + 1) * RADIUS;
 }
 
 const drawNetwork = (
@@ -85,11 +86,11 @@ export const NetworkDiagram = ({ width, height, data }: NetworkDiagramProps) => 
         d3.forceCollide(
           (d) =>
             d.group === 'tag'
-              ? getRadius(d.weight) + RADIUS
+              ? getRadius(d.weight) + 1.5 * RADIUS
               : getRadius(d.weight) + RADIUS * Math.floor(d.label.length / 3) // long label article
         )
       )
-      .force('charge', d3.forceManyBody().strength(-18))
+      .force('charge', d3.forceManyBody().strength(-20))
       .force('center', d3.forceCenter(width / 2, height / 2))
 
       .on('tick', () => {
@@ -106,7 +107,7 @@ export const NetworkDiagram = ({ width, height, data }: NetworkDiagramProps) => 
   };
 
   return (
-    <div className="relative">
+    <div className="overflow-auto relative">
       <canvas
         ref={canvasRef}
         style={{
@@ -118,9 +119,9 @@ export const NetworkDiagram = ({ width, height, data }: NetworkDiagramProps) => 
       />
       {simulatedData && (
         <svg
-          className="absolute top-0 left-0 animate-fade"
           width={width}
           height={height}
+          className={`absolute top-0 left-0 animate-fade ${GeistSans.className}`}
           viewBox={`0 0 ${width} ${height}`}
         >
           <g>
@@ -155,9 +156,8 @@ export const NetworkDiagram = ({ width, height, data }: NetworkDiagramProps) => 
                   <text
                     x={d.x && d.x + 2 + getRadius(d.weight)}
                     y={d.y && d.y + getRadius(d.weight)}
-                    fontFamily="inter"
                     color={d.group === 'tag' ? '#FFB457' : 'white'}
-                    className="text-xs font-thin"
+                    className="text-sm font-thin"
                   >
                     {d.label}
                   </text>
