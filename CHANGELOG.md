@@ -1,3 +1,14 @@
+# [1.3.0](https://github.com/xavierchow/xblog/compare/v1.2.6...v1.3.0) (2025-02-07)
+
+
+### Features
+
+* add about ([cb4a96e](https://github.com/xavierchow/xblog/commit/cb4a96e15fcb4a1d1e45ec83682c08365eacc3dd))
+* responsive about ([58a1d08](https://github.com/xavierchow/xblog/commit/58a1d0811651d1efe9a2f27b0c33b0e91de5b324))
+* tags ([9911b9b](https://github.com/xavierchow/xblog/commit/9911b9b04595656ae3df57bd4534855a1e5c7e00))
+
+
+
 ## [1.2.6](https://github.com/xavierchow/xblog/compare/v1.2.5...v1.2.6) (2025-01-26)
 
 
