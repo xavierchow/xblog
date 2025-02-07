@@ -52,9 +52,9 @@ export default function NavBar() {
             </Link>
 
             <div className="flex flex-row gap-8 hidden lg:flex">
-              <Link href="/about">
+              <Link href="/tags">
                 <div className="my-2">
-                  <span className={`lg:text-lg inline-block align-middle`}>Links</span>
+                  <span className={`lg:text-lg inline-block align-middle`}>Tags</span>
                 </div>
               </Link>
 
@@ -104,9 +104,11 @@ export default function NavBar() {
             <li>
               <Link href="/">Home</Link>
             </li>
-
             <li>
-              <Link href="https://github.com/xavierchow">Star me on Github</Link>
+              <Link href="/tags">Tags</Link>
+            </li>
+            <li>
+              <Link href="/about">About</Link>
             </li>
           </ul>
         </div>

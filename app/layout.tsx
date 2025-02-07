@@ -4,8 +4,19 @@ import './globals.css';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import NavBar from '@/app/components/nav_bar';
 const gaId = process.env.GA_ID || '';
+
 const aeonik = localFont({
   src: [
+    {
+      path: './fonts/AeonikTRIAL-Light.otf',
+      weight: '100',
+      style: 'normal',
+    },
+    {
+      path: './fonts/AeonikTRIAL-LightItalic.otf',
+      weight: '100',
+      style: 'italic',
+    },
     {
       path: './fonts/AeonikTRIAL-Regular.otf',
       weight: '400',
