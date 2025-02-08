@@ -83,14 +83,9 @@ export const NetworkDiagram = ({ width, height, data }: NetworkDiagramProps) => 
       )
       .force(
         'collide',
-        d3.forceCollide(
-          (d) =>
-            d.group === 'tag'
-              ? getRadius(d.weight) + 1.5 * RADIUS
-              : getRadius(d.weight) + RADIUS * Math.floor(d.label.length / 3) // long label article
-        )
+        d3.forceCollide((d) => getRadius(d.weight) + 3 * RADIUS)
       )
-      .force('charge', d3.forceManyBody().strength(-20))
+      .force('charge', d3.forceManyBody().strength(-21))
       .force('center', d3.forceCenter(width / 2, height / 2))
 
       .on('tick', () => {
