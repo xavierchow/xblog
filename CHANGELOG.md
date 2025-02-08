@@ -1,3 +1,12 @@
+## [1.3.1](https://github.com/xavierchow/xblog/compare/v1.3.0...v1.3.1) (2025-02-08)
+
+
+### Bug Fixes
+
+* anchor for toggle btn ([ba3e0ef](https://github.com/xavierchow/xblog/commit/ba3e0efcfd42226bee15fb51f45681e752f70a93))
+
+
+
 # [1.3.0](https://github.com/xavierchow/xblog/compare/v1.2.6...v1.3.0) (2025-02-07)
 
 
