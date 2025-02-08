@@ -74,9 +74,12 @@ export default function NavBar() {
                 </Button>
               </Link>
             </div>
+
             <div
+              role="link"
               className="lg:hidden"
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault();
                 setToggle(!toggle);
               }}
             >
@@ -88,7 +91,8 @@ export default function NavBar() {
       {toggle && (
         <div className="fixed top-0 left-0 z-40 no-doc-scroll bg-black/80 backdrop-blur w-full h-screen">
           <div
-            className="absolute right-4 top-4"
+            className="absolute right-9 top-3"
+            role="link"
             onClick={() => {
               setToggle(!toggle);
             }}
