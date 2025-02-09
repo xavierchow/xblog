@@ -19,10 +19,11 @@ export default async function Page() {
   const nodesTags = R.map((k) => {
     return { id: k, label: k, group: 'tag', weight: groupByTags[k]?.length || 1 };
   }, R.keys(groupByTags));
+  const MAX_CHAR = 18;
   const nodeArticles = R.map((p) => {
     return {
       id: p.slug,
-      label: p.title.length > 15 ? p.title.slice(0, 15) + '...' : p.title,
+      label: p.title.length > MAX_CHAR ? p.title.slice(0, MAX_CHAR) + '...' : p.title,
       group: 'article',
       weight: p.tags?.length || 1,
     };
@@ -35,7 +36,7 @@ export default async function Page() {
   //console.log('links %o', links);
   return (
     <div className="m-auto flex justify-center">
-      <NetworkDiagram width={1024} height={1024} data={{ nodes, links }}></NetworkDiagram>
+      <NetworkDiagram width={1536} height={1536} data={{ nodes, links }}></NetworkDiagram>
     </div>
   );
 }

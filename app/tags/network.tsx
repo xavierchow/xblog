@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 export const RADIUS = 5;
 function getRadius(weight: number) {
   weight = weight || 1;
-  return (weight + 1) * RADIUS;
+  return weight * RADIUS + RADIUS / 2;
 }
 
 const drawNetwork = (
@@ -83,9 +83,9 @@ export const NetworkDiagram = ({ width, height, data }: NetworkDiagramProps) => 
       )
       .force(
         'collide',
-        d3.forceCollide((d) => getRadius(d.weight) + 3 * RADIUS)
+        d3.forceCollide((d) => getRadius(d.weight) + 8 * RADIUS)
       )
-      .force('charge', d3.forceManyBody().strength(-21))
+      .force('charge', d3.forceManyBody().strength(-20))
       .force('center', d3.forceCenter(width / 2, height / 2))
 
       .on('tick', () => {
@@ -122,14 +122,16 @@ export const NetworkDiagram = ({ width, height, data }: NetworkDiagramProps) => 
           <g>
             {simulatedData.links.map((d, i) => {
               if (d.source.x && d.source.y && d.target.x && d.target.y) {
-                return <line key={i} x1={d.source.x} y1={d.source.y} x2={d.target.x} y2={d.target.y} stroke="white" />;
+                return (
+                  <line key={i} x1={d.source.x} y1={d.source.y} x2={d.target.x} y2={d.target.y} stroke="#34342F" />
+                );
               }
             })}
           </g>
           <defs>
             <radialGradient id="yellowGradient">
-              <stop offset="0%" stopColor="#FF705B" />
-              <stop offset="100%" stopColor="#FFB457" />
+              <stop offset="0%" stopColor="#F07352" />
+              <stop offset="100%" stopColor="black" />
             </radialGradient>
             <radialGradient id="whiteGradient">
               <stop offset="0%" stopColor="white" />
@@ -142,16 +144,16 @@ export const NetworkDiagram = ({ width, height, data }: NetworkDiagramProps) => 
                 <g onClick={() => d.group === 'article' && navigate(d.id)} key={i}>
                   <circle
                     fill={d.group === 'tag' ? 'url(#yellowGradient)' : 'url(#whiteGradient)'}
-                    stroke={d.group === 'tag' ? '#FFB457' : 'black'}
+                    stroke={d.group === 'tag' ? 'black' : 'black'}
                     cx={d.x}
                     cy={d.y}
                     r={getRadius(d.weight)}
                     className={d.group === 'article' ? 'cursor-pointer' : ''}
                   />
                   <text
-                    x={d.x && d.x + 2 + getRadius(d.weight)}
-                    y={d.y && d.y + getRadius(d.weight)}
-                    color={d.group === 'tag' ? '#FFB457' : 'white'}
+                    x={d.x && d.x - 50 + getRadius(d.weight)}
+                    y={d.y && d.y + 15 + getRadius(d.weight)}
+                    color={d.group === 'tag' ? '#F07352' : 'white'}
                     className="text-sm font-thin"
                   >
                     {d.label}
