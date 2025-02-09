@@ -1,3 +1,12 @@
+## [1.3.4](https://github.com/xavierchow/xblog/compare/v1.3.3...v1.3.4) (2025-02-09)
+
+
+### Bug Fixes
+
+* animation color ([bce312c](https://github.com/xavierchow/xblog/commit/bce312cb9e62a38970c9b34e766592f49dc117cd))
+
+
+
 ## [1.3.3](https://github.com/xavierchow/xblog/compare/v1.3.2...v1.3.3) (2025-02-09)
 
 
