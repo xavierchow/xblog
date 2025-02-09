@@ -23,7 +23,7 @@ const drawNetwork = (
   links.forEach((link) => {
     if (link.source.x && link.source.y && link.target.x && link.target.y) {
       context.beginPath();
-      context.strokeStyle = 'white';
+      context.strokeStyle = '#34342F';
       context.moveTo(link.source.x, link.source.y);
       context.lineTo(link.target.x, link.target.y);
       context.stroke();
@@ -38,8 +38,8 @@ const drawNetwork = (
     const gradient = context.createRadialGradient(node.x, node.y, 0, node.x, node.y, radius);
 
     if (node.group === 'tag') {
-      gradient.addColorStop(0, '#FF705B');
-      gradient.addColorStop(1, '#FFB457');
+      gradient.addColorStop(0, '#F07352');
+      gradient.addColorStop(1, 'black');
     } else {
       gradient.addColorStop(0, 'white');
       gradient.addColorStop(1, 'black');
@@ -144,7 +144,7 @@ export const NetworkDiagram = ({ width, height, data }: NetworkDiagramProps) => 
                 <g onClick={() => d.group === 'article' && navigate(d.id)} key={i}>
                   <circle
                     fill={d.group === 'tag' ? 'url(#yellowGradient)' : 'url(#whiteGradient)'}
-                    stroke={d.group === 'tag' ? 'black' : 'black'}
+                    stroke="black"
                     cx={d.x}
                     cy={d.y}
                     r={getRadius(d.weight)}
