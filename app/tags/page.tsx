@@ -36,7 +36,7 @@ export default async function Page() {
   //console.log('links %o', links);
   return (
     <div className="m-auto flex justify-center">
-      <NetworkDiagram width={1536} height={1536} data={{ nodes, links }}></NetworkDiagram>
+      <NetworkDiagram data={{ nodes, links }}></NetworkDiagram>
     </div>
   );
 }

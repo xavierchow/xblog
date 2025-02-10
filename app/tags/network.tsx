@@ -54,12 +54,14 @@ const drawNetwork = (
 };
 
 type NetworkDiagramProps = {
-  width: number;
-  height: number;
+  viewWidth?: number;
+  viewHeight?: number;
   data: Data;
 };
 
-export const NetworkDiagram = ({ width, height, data }: NetworkDiagramProps) => {
+export const NetworkDiagram = ({ viewWidth = 1536, viewHeight = 1536, data }: NetworkDiagramProps) => {
+  const width = viewWidth;
+  const height = viewHeight;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const initData = { nodes: [] as Node[], links: [] as SimulatedLink[] };
   const [simulatedData, setSimulatedData] = useState(initData);
@@ -102,21 +104,19 @@ export const NetworkDiagram = ({ width, height, data }: NetworkDiagramProps) => 
   };
 
   return (
-    <div className="overflow-auto relative">
+    <div className="w-full h-full overflow-auto relative">
       <canvas
         ref={canvasRef}
         style={{
-          width,
-          height,
+          width: '100%',
+          height: '100%',
         }}
         width={width}
         height={height}
       />
       {simulatedData && (
         <svg
-          width={width}
-          height={height}
-          className={`absolute top-0 left-0 animate-fade ${GeistSans.className}`}
+          className={`w-full h-full absolute top-0 left-0 animate-fade ${GeistSans.className}`}
           viewBox={`0 0 ${width} ${height}`}
         >
           <g>
