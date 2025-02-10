@@ -6,6 +6,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
+      disallow: ['/*.woff$', '/*.woff2$', '/*.ttf$', '/*.eot$', '/*.otf$'],
     },
     sitemap: `${host}/sitemap.xml`,
   };
