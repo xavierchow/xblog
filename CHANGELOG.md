@@ -1,3 +1,17 @@
+## [1.3.5](https://github.com/xavierchow/xblog/compare/v1.3.4...v1.3.5) (2025-02-10)
+
+
+### Bug Fixes
+
+* avoid font being crawled ([7c99a3f](https://github.com/xavierchow/xblog/commit/7c99a3f651f5ca0caa664f243d549f1971533bea))
+
+
+### Features
+
+* add home menu ([c3e5d45](https://github.com/xavierchow/xblog/commit/c3e5d4586630475e68bb4482902c3277c6a6f251))
+
+
+
 ## [1.3.4](https://github.com/xavierchow/xblog/compare/v1.3.3...v1.3.4) (2025-02-09)
 
 
