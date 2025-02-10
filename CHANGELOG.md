@@ -1,3 +1,7 @@
+## [1.3.7](https://github.com/xavierchow/xblog/compare/v1.3.6...v1.3.7) (2025-02-10)
+
+
+
 ## [1.3.6](https://github.com/xavierchow/xblog/compare/v1.3.5...v1.3.6) (2025-02-10)
 
 
