@@ -34,6 +34,12 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
       locale: 'en_US',
       type: 'website',
     },
+    twitter: {
+      card: 'summary_large_image',
+      siteId: '@xavierzhou',
+      creator: '@xavierzhou',
+      images: [`${basePath}${data.cover?.slice(0, -4)}-tw.png`],
+    },
   };
 }
 
