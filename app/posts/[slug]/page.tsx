@@ -23,6 +23,17 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
     description: data.description || data.title,
     keywords: data.tags || [],
     authors: [{ name: 'xavier zhou', url: 'https://github.com/xavierchow' }],
+    metadataBase: new URL('https://xavierz.dev'),
+    alternates: {
+      canonical: `${basePath}/posts/${slug}`,
+    },
+    openGraph: {
+      images: `${basePath}${data.cover}`,
+      url: `${basePath}/posts/${slug}`,
+      siteName: `Xavier's blog`,
+      locale: 'en_US',
+      type: 'website',
+    },
   };
 }
 
