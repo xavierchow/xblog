@@ -1,3 +1,12 @@
+## [1.3.6](https://github.com/xavierchow/xblog/compare/v1.3.5...v1.3.6) (2025-02-10)
+
+
+### Features
+
+* og and canonical url ([b43ba3f](https://github.com/xavierchow/xblog/commit/b43ba3f90a7d05d741c81ddade617f9d6a1eecbd))
+
+
+
 ## [1.3.5](https://github.com/xavierchow/xblog/compare/v1.3.4...v1.3.5) (2025-02-10)
 
 
