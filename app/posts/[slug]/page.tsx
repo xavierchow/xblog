@@ -38,7 +38,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
       card: 'summary_large_image',
       siteId: '@xavierzhou',
       creator: '@xavierzhou',
-      images: [`${basePath}${data.cover?.slice(0, -4)}-tw.png`],
+      images: [`${basePath}${data.cover}`],
     },
   };
 }
