@@ -1,3 +1,12 @@
+## [1.3.9](https://github.com/xavierchow/xblog/compare/v1.3.8...v1.3.9) (2025-02-23)
+
+
+### Bug Fixes
+
+* og image ([7e14bcf](https://github.com/xavierchow/xblog/commit/7e14bcf06a2784c67f09876ff04c559467eddb8e))
+
+
+
 ## [1.3.8](https://github.com/xavierchow/xblog/compare/v1.3.7...v1.3.8) (2025-02-11)
 
 
