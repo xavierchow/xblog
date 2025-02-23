@@ -28,7 +28,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
       canonical: `${basePath}/posts/${slug}`,
     },
     openGraph: {
-      images: `${basePath}${data.cover}`,
+      images: parseImageSrc(data.cover),
       url: `${basePath}/posts/${slug}`,
       siteName: `Xavier's blog`,
       locale: 'en_US',
@@ -38,7 +38,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
       card: 'summary_large_image',
       siteId: '@xavierzhou',
       creator: '@xavierzhou',
-      images: [`${basePath}${data.cover}`],
+      images: [parseImageSrc(data.cover)],
     },
   };
 }
