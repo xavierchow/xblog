@@ -87,7 +87,7 @@ export const NetworkDiagram = ({ viewWidth = 1536, viewHeight = 1536, data }: Ne
         'collide',
         d3.forceCollide((d) => getRadius(d.weight) + 8 * RADIUS)
       )
-      .force('charge', d3.forceManyBody().strength(-20))
+      .force('charge', d3.forceManyBody().strength(-10))
       .force('center', d3.forceCenter(width / 2, height / 2))
 
       .on('tick', () => {
