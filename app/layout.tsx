@@ -1,45 +1,12 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
+import { Nunito } from 'next/font/google';
+
 import './globals.css';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import NavBar from '@/app/components/nav_bar';
 const gaId = process.env.GA_ID || '';
 
-const aeonik = localFont({
-  src: [
-    {
-      path: './fonts/AeonikTRIAL-Light.otf',
-      weight: '100',
-      style: 'normal',
-    },
-    {
-      path: './fonts/AeonikTRIAL-LightItalic.otf',
-      weight: '100',
-      style: 'italic',
-    },
-    {
-      path: './fonts/AeonikTRIAL-Regular.otf',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: './fonts/AeonikTRIAL-RegularItalic.otf',
-      weight: '400',
-      style: 'italic',
-    },
-    {
-      path: './fonts/AeonikTRIAL-Bold.otf',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: './fonts/AeonikTRIAL-BoldItalic.otf',
-      weight: '700',
-      style: 'italic',
-    },
-  ],
-  variable: '--font-aeonik',
-});
+const nunito = Nunito({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: "Xavier's blog posts",
@@ -53,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${aeonik.className} antialiased h-full`}>
+      <body className={`${nunito.className} antialiased h-full`}>
         <NavBar />
         {children}
         <div className="container mt-6 h-12 text-sm md:text-base mx-auto flex flex-row justify-end p-2">
